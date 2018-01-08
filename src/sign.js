@@ -12,16 +12,21 @@ function draw() {
     // Nothing
 }
 
+function mousePressed() {
+    // Draw sketch
+    fill(0);
+    strokeWeight(1);
+    ellipse(mouseX, mouseY, 5, 5);
+}
+
 function mouseDragged() {
     // Draw sketch
-    stroke(0);
     strokeWeight(5);
     line(mouseX, mouseY, pmouseX, pmouseY);
 }
 
 function reset() {
     //Reset background
-    stroke(0);
     strokeWeight(10);
     fill(255);
     rect(0, 0, width, height);
@@ -31,13 +36,9 @@ function CanvasToBase64() {
     var canvas = document.getElementsByTagName("canvas");
     var base64 = canvas[0].toDataURL('image/jpg');
 
-    // console.log(deal_id);
-
-    // console.log(base64.replace(/^.*,/, ''));
-
     var xhr = new XMLHttpRequest();
     xhr.open('POST', '/push.php');
     xhr.onload = (e) => { console.log(xhr.responseText) };
     // console.log(deal_id + ' ' + base64);
-    xhr.send("deal_id=" + deal_id + "&base64=" + base64.replace(/^.*,/, ''));
+    xhr.send("deal_id=" + deal_id + "&base64=" + base64);
 }
