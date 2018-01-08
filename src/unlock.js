@@ -1,13 +1,14 @@
 var google_login_status = false;
 
 function receiverID() {
-    var query = location.search.substring(1, location.search.length).match(/receiver_id=(\d){12}/);
-    return query ? query.split('=')[1] : null;
+    var query = location.search.substring(1, location.search.length).match(/receiver_id=(\d){12}/)[0];
+    return query ? query.toString().split('=')[1] : null;
 }
 
 function renderButton() {
     gapi.signin2.render('gSignIn', {
         'theme': 'dark',
+        'longtitle': true,
         'onsuccess': (googleUser) => { google_login_status = true }
     });
 }
