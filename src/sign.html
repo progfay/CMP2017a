@@ -1,0 +1,27 @@
+<html>
+
+<head>
+    <meta charset="utf-8" content="text/html">
+    <script language="javascript" type="text/javascript" src="dist/p5.min.js"></script>
+    <script language="javascript" type="text/javascript" src="sketch.js"></script>
+    <script>
+        var query = location.search.substring(1, location.search.length).match(/deal_id=(\d){12}/);
+        var deal_id = query ? (query[0] ? query[0].toString().split('=')[1] : null) : null;
+    </script>
+    <style type="text/css">
+        body {
+            width: 100%;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <p>サインしてください</p>
+        <input type="button" value="やり直す" onclick="reset();">
+        <input type="button" value="送信" onclick="CanvasToBase64();">
+    </div>
+</body>
+
+</html>

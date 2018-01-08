@@ -20,11 +20,11 @@
 				<thead class="thead-default">
 						<tr>
 								<th scope="col">ID</th>
-								<th scope="col">CLIENT</th>
-								<th scope="col">RECEIVER</th>
-								<th scope="col">DONE</th>
-								<th scope="col">OPTION</th>
-								<th scope="col">SIGN</th>
+								<th scope="col">依頼人</th>
+								<th scope="col">届け先</th>
+								<th scope="col">オプション</th>
+								<th scope="col">配達済み</th>
+								<th scope="col">サイン</th>
 						</tr>
 				</thead>
 
@@ -32,16 +32,16 @@
 							<?php
 								$db = new PDO("sqlite:SQL/customer.sqlite");
 								$result = $db -> query("SELECT * FROM trade");
-								$yet  = "<input type=\"checkbox\" name=\"\" disabled=\"disabled\" />";
-								$done = "<input type=\"checkbox\" name=\"\" checked=\"checked\" disabled=\"disabled\" />";
+								$yet  = "<input type=\"checkbox\" name=\"\" readonly=\"readonly\" />";
+								$done = "<input type=\"checkbox\" name=\"\" readonly=\"readonly\" checked=\"checked\" />";
 
 								for($i = 0; $row = $result -> fetch(); ++$i) {
 									echo "<tr valign=center>";
 											echo "<th scope=\"row\">" . $row['id'] . "</td>";
 											echo "<td><a href=\"/user.php?user_id=" . $row['client']   . "\">" . $row['client']   . "</td>";
 											echo "<td><a href=\"/user.php?user_id=" . $row['receiver']  . "\">" . $row['receiver'] . "</td>";
+											echo "<td>" . ($row['option'] == "0"  ? "なし" : "あり") . "</td>";
 											echo "<td>" . ($row['done']   == "0"  ? $yet : $done) . "</td>";
-											echo "<td>" . ($row['option'] == "0"  ? $yet : $done) . "</td>";
 											echo "<td>" . ($row['sign']   == NULL ? $yet : $done) . "</td>";
 									echo "</tr>";
 								}
