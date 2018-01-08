@@ -44,7 +44,7 @@
 
       echo       '<tr>';
       echo         '<td><b> 電話番号 </b></td>';
-      echo         '<td>' . $row['phone'] . '</td>';
+      echo         '<td><a href="tel:' . $row['phone'] . '">' . $row['phone'] . '</a></td>';
       echo       '</tr>';
 
       echo     '</tbody>';

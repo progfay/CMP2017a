@@ -4,8 +4,10 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="format-detection" content="telephone=no">
 	<title>Trade</title>
 	<link rel="stylesheet" href="dist/bootstrap.min.css">
+	<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
 	<style>
 		th, td {
 			text-align: center;
@@ -32,8 +34,8 @@
 							<?php
 								$db = new PDO("sqlite:SQL/customer.sqlite");
 								$result = $db -> query("SELECT * FROM trade");
-								$yet  = "<input type=\"checkbox\" name=\"\" readonly=\"readonly\" />";
-								$done = "<input type=\"checkbox\" name=\"\" readonly=\"readonly\" checked=\"checked\" />";
+								$yet  = "<i class=\"fa fa-square-o\" aria-hidden=\"true\" style=\"color: #AAAAAA;\"></i>";
+								$done = "<i class=\"fa fa-check-square-o\" aria-hidden=\"true\" style=\"color: #30CD52;\"></i>";
 
 								for($i = 0; $row = $result -> fetch(); ++$i) {
 									echo "<tr valign=center>";

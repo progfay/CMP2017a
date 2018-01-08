@@ -37,8 +37,7 @@ function CanvasToBase64() {
 
     var xhr = new XMLHttpRequest();
     xhr.open('POST', '/push.php');
-    xhr.send({
-        deal_id: deal_id,
-        base64: base64.replace(/^.*,/, '')
-    });
+    xhr.onload = (e) => { console.log(xhr.responseText) };
+    // console.log(deal_id + ' ' + base64);
+    xhr.send("deal_id=" + deal_id + "&base64=" + base64.replace(/^.*,/, ''));
 }
