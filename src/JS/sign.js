@@ -53,14 +53,13 @@ var deal_id = query ? (query[0] ? query[0].toString().split('=')[1] : null) : nu
 
 //canvasをbase64に
 function CanvasToBase64() {
-    var canvas = document.getElementsByTagName("canvas");
-    var base64 = canvas[0].toDataURL('image/jpg');
-
     var xhr = new XMLHttpRequest();
     xhr.open('POST', '/push.php');
     xhr.onload = (e) => {
-        console.log(xhr.responseText)
+        // console.log(xhr.responseText);
+        location.href = xhr.responseText;
     };
-    // console.log(deal_id + ' ' + base64);
+    var deal_id = query ? (query[0] ? query[0].toString().split('=')[1] : "") : "";
+    base64 = document.getElementsByTagName("canvas")[0].toDataURL('image/jpg')
     xhr.send("deal_id=" + deal_id + "&base64=" + base64);
 }

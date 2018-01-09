@@ -4,5 +4,10 @@
   $db = new PDO("sqlite:SQL/customer.sqlite");
   $db -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
   $st = $db -> prepare('UPDATE trade SET sign=? WHERE id=?');
+  if(isset($POST[0]) and isset($POST[1])) {
   $st -> execute(array($POST[1], $POST[0]));
+  echo '/sign_ok.html';
+  } else {
+    echo '/error.html';
+  }
 ?>

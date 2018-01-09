@@ -78,4 +78,5 @@ function done() {
         console.log(xhr.responseText);
     }
     xhr.send(null);
+    location.href = '/done.php?deal_id=' + first.value + '' + second.value + '' + third.value;
 }
