@@ -1,4 +1,3 @@
-var google_login_status = false;
 var webmo;
 var isOpen = false;
 var isMove = false;
@@ -14,19 +13,7 @@ function getHostName() {
     return query ? (query[0] ? query[0].toString().split('=')[1] : null) : null;
 }
 
-function renderButton() {
-    gapi.signin2.render('gSignIn', {
-        'theme': 'dark',
-        'longtitle': true,
-        'onsuccess': (googleUser) => { google_login_status = true }
-    });
-}
-
 function unlock() {
-    if (!google_login_status) {
-        console.log('WARNING: google認証をしてください');
-        return false;
-    }
     var receiverID = getReceiverID();
     if (!receiverID) {
         console.log('WARNING: URLにreceiverIDが設定されていません');
