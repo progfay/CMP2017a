@@ -1,26 +1,22 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Sign</title>
-    <script language="javascript" type="text/javascript" src="dist/p5.min.js"></script>
-    <script language="javascript" type="text/javascript" src="JS/sign.js"></script>
-    <script>
-        var query = location.search.substring(1, location.search.length).match(/deal_id=(\d){12}/);
-        var deal_id = query ? (query[0] ? query[0].toString().split('=')[1] : null) : null;
-    </script>
+    <title>Document</title>
+    <script src="dist/jquery.min.js"></script>
     <style type="text/css">
         body {
             width: 100%;
             text-align: center;
+            overflow: hidden;
         }
         
-        html,
-        body {
-            overflow: hidden
+        canvas {
+            text-shadow: black 1px 1px 0px, black -1px 1px 0px, black 1px -1px 0px, black -1px -1px 0px;
+            border: solid 3px black;
         }
     </style>
 </head>
@@ -28,9 +24,13 @@
 <body>
     <div>
         <p>サインしてください</p>
-        <input type="button" value="やり直す" onclick="reset();">
+        <input type="button" value="やり直す" id="clear_button">
         <input type="button" value="送信" onclick="CanvasToBase64();">
     </div>
+    <div>
+        <canvas id="canvas" width="300" height="400" style="background-color: #fff;"></canvas>
+    </div>
+    <script src="JS/sign.js"></script>
 </body>
 
 </html>

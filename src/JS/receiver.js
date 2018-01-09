@@ -1,10 +1,9 @@
-const hostName = "192.168.42.1";
 var webmo = new Webmo.ws(getHostName());
 var isOpen = false;
 var isMove = false;
 
 function getHostName() {
-    var query = location.search.substring(1, location.search.length).match(/HostName=[^&]*/);
+    var query = location.search.substring(1, location.search.length).match(/hostName=[^&]*/);
     return query ? (query[0] ? query[0].toString().split('=')[1] : null) : null;
 }
 

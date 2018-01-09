@@ -9,7 +9,7 @@ function getReceiverID() {
 }
 
 function getHostName() {
-    var query = location.search.substring(1, location.search.length).match(/HostName=[^&]*/);
+    var query = location.search.substring(1, location.search.length).match(/hostName=[^&]*/);
     return query ? (query[0] ? query[0].toString().split('=')[1] : null) : null;
 }
 
@@ -40,7 +40,8 @@ function unlock() {
         second.disabled = true;
         third.disabled = true;
 
-        var webmo = new Webmo.ws(getHostName());
+        webmo = new Webmo.ws(getHostName());
+        console.log(getHostName());
         webmo.onopen = () => { open_box() };
     };
     xhr.send(null);
