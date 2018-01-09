@@ -1,12 +1,16 @@
 var google_login_status = false;
 var webmo;
-const hostName = "192.168.42.1";
 var isOpen = false;
 var isMove = false;
 var dealID;
 
 function getReceiverID() {
     var query = location.search.substring(1, location.search.length).match(/receiver_id=(\d){4}/);
+    return query ? (query[0] ? query[0].toString().split('=')[1] : null) : null;
+}
+
+function getHostName() {
+    var query = location.search.substring(1, location.search.length).match(/HostName=[^&]*/);
     return query ? (query[0] ? query[0].toString().split('=')[1] : null) : null;
 }
 
@@ -49,7 +53,7 @@ function unlock() {
         second.disabled = true;
         third.disabled = true;
 
-        var webmo = new Webmo.ws(hostName);
+        var webmo = new Webmo.ws(getHostName());
         webmo.onopen = () => { open_box() };
     };
     xhr.send(null);

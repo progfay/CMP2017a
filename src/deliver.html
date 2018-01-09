@@ -5,9 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title> Receive </title>
+    <meta name="google-signin-client_id" content="53670337451-ajurbe6r2o8771u3o1jpoidcv56vngj4.apps.googleusercontent.com">
+    <title> UNLOCK </title>
     <script src="dist/webmo.min.js"></script>
-    <script src="receive.js"></script>
+    <script src="https://apis.google.com/js/client:platform.js?onload=renderButton" async defer></script>
+    <script src="JS/deliver.js"></script>
     <style>
         center {
             position: relative;
@@ -51,13 +53,23 @@
             background: #67c5ff;
             color: white;
         }
+        
+        #open,
+        #close,
+        #done {
+            display: none;
+        }
     </style>
 </head>
 
 <body>
     <center>
+        <div id="gSignIn"></div><br>
+        <input type="number" id="first"> - <input type="number" id="second"> - <input type="number" id="third"> <br>
+        <button type="button" id="unlock" onclick="unlock()"> UNLOCK </button><br><br>
         <button type="button" id="open" onclick="open_box()"> OPEN </button>
-        <button type="button" id="close" onclick="close_box()"> CLOSE </button>
+        <button type="button" id="close" onclick="close_box()"> CLOSE </button> <br><br>
+        <button type="button" id="done" onclick="done()"> DONE </button>
     </center>
 </body>
 
