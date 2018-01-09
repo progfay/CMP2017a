@@ -42,9 +42,9 @@
 											echo "<th scope=\"row\">" . $row['id'] . "</td>";
 											echo "<td><a href=\"/user.php?user_id=" . $row['client']   . "\">" . $row['client']   . "</td>";
 											echo "<td><a href=\"/user.php?user_id=" . $row['receiver']  . "\">" . $row['receiver'] . "</td>";
-											echo "<td>" . ($row['option'] == "0"  ? "なし" : "あり") . "</td>";
-											echo "<td>" . ($row['done']   == "0"  ? $yet : $done) . "</td>";
-											echo "<td>" . ($row['sign']   == NULL ? $yet : $done) . "</td>";
+											echo "<td>" . ($row['option'] == "0" ? "なし" : "あり") . "</td>";
+											echo "<td>" . ($row['done']   == "0" ? $yet   : $done ) . "</td>";
+											echo "<td>" . ($row['sign'] == NULL ? $yet : "<a href=\"/sign_preview.php?deal_id=" . $row['id'] . "\"" . $done ."</a>") . "</td>";
 									echo "</tr>";
 								}
 							?>
