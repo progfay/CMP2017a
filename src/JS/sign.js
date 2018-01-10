@@ -56,10 +56,9 @@ function CanvasToBase64() {
     var xhr = new XMLHttpRequest();
     xhr.open('POST', '/push.php');
     xhr.onload = (e) => {
-        // console.log(xhr.responseText);
-        location.href = xhr.responseText;
+        location.href = '../sign_ok.html';
     };
-    var deal_id = query ? (query[0] ? query[0].toString().split('=')[1] : "") : "";
-    base64 = document.getElementsByTagName("canvas")[0].toDataURL('image/jpg')
+    var deal_id = query ? (query[0] ? query[0].toString().split('=')[1] : "1001") : "1001";
+    base64 = document.getElementsByTagName("canvas")[0].toDataURL('image/jpg');
     xhr.send("deal_id=" + deal_id + "&base64=" + base64);
 }

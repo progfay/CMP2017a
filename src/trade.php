@@ -17,6 +17,10 @@
 		th, td {
 			text-align: center;
 		}
+
+		.highlight {
+			background: rgb(255, 215, 220);
+		}
 	</style>
 </head>
 
@@ -37,13 +41,13 @@
 
 				<tbody>
 							<?php
+								$highlight = (isset($_GET['highlight']) ? $_GET['highlight'] : "");
 								$db = new PDO("sqlite:SQL/customer.sqlite");
 								$result = $db -> query("SELECT * FROM trade");
 								$yet  = "<i class=\"fa fa-square-o\" aria-hidden=\"true\" style=\"color: #AAAAAA;\"></i>";
 								$done = "<i class=\"fa fa-check-square-o\" aria-hidden=\"true\" style=\"color: #30CD52;\"></i>";
-
 								for($i = 0; $row = $result -> fetch(); ++$i) {
-									echo "<tr valign=center>";
+									echo "<tr valign=center " . ($highlight == $row['id'] ? "class=\"highlight\""  : "") . ">";
 											echo "<th scope=\"row\">" . $row['id'] . "</td>";
 											echo "<td><a href=\"/user.php?user_id=" . $row['client']   . "\">" . $row['client']   . "</td>";
 											echo "<td><a href=\"/user.php?user_id=" . $row['receiver']  . "\">" . $row['receiver'] . "</td>";

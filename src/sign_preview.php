@@ -10,10 +10,15 @@
   <link rel="manifest" href="favicons/manifest.json">
   <link rel="mask-icon" href="favicons/safari-pinned-tab.svg" color="#5bbad5">
   <title>Sign Preview</title>
+  <style>
+  img {
+    border: solid 3px black;
+  }
+  </style>
 </head>
 <body>
   <center>
-    <img src=
+    <img id="sign" src=
       <?php
         if(isset($_GET['deal_id'])) {
           $db = new PDO("sqlite:SQL/customer.sqlite");
