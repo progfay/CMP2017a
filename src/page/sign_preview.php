@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,18 +9,25 @@
   <link rel="icon" type="image/png" sizes="16x16" href="favicons/favicon-16x16.png">
   <link rel="manifest" href="favicons/manifest.json">
   <link rel="mask-icon" href="favicons/safari-pinned-tab.svg" color="#5bbad5">
-  <title> Done </title>
+  <title>Sign Preview</title>
+  <style>
+  img {
+    border: solid 3px black;
+  }
+  </style>
 </head>
 <body>
-  <?php
-    function h($str) {return htmlspecialchars($str, ENT_QUOTES, "UTF-8");}
-    if(isset($_GET['deal_id'])) {
-      $db = new PDO("sqlite:SQL/customer.sqlite");
-      $db -> query("UPDATE trade SET done=1 WHERE id=" . h($_GET['deal_id']));
-      echo "配達完了！！";
-    } else {
-      echo "ERROR: not found \"deal_id\" query for GET paramater";
-    }
-  ?>
+  <center>
+    <img id="sign" src=
+      <?php
+        if(isset($_GET['deal_id'])) {
+          $db = new PDO("sqlite:../SQL/customer.sqlite");
+          $result = $db -> query("SELECT sign FROM trade WHERE id=" . $_GET['deal_id']);
+          $row = $result -> fetch();
+          echo '"' . $row['sign'] . '"';
+        }
+      ?>
+    alt="Not Found">
+   <center>
 </body>
 </html>

@@ -27,7 +27,7 @@ function unlock() {
         return false;
     }
     var xhr = new XMLHttpRequest();
-    xhr.open('GET', '/getReceiverFromDeal.php?id=' + first.value + '' + second.value + '' + third.value);
+    xhr.open('GET', '../PHP/getReceiverFromDeal.php?id=' + first.value + '' + second.value + '' + third.value);
     xhr.onload = (e) => {
         if (xhr.responseText != receiverID) {
             alert("ERROR: invalid ID");
@@ -69,14 +69,6 @@ function stop_webmo() {
 }
 
 function done() {
-    if (isOpen || isMove) {
-        alert("ポストが閉じてから操作を行ってください");
-    }
-    var xhr = new XMLHttpRequest();
-    xhr.open('GET', '/done.php?deal_id=' + first.value + '' + second.value + '' + third.value);
-    xhr.onload = (e) => {
-        console.log(xhr.responseText);
-    }
-    xhr.send(null);
-    location.href = '/done.php?deal_id=' + first.value + '' + second.value + '' + third.value;
+    if (isOpen || isMove) alert("ポストが閉じてから操作を行ってください");
+    location.href = '../page/done.php?deal_id=' + first.value + '' + second.value + '' + third.value;
 }

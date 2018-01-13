@@ -12,7 +12,7 @@ function onSuccess(googleUser) {
     gapi.client.load('plus', 'v1', function() {
         var request = gapi.client.plus.people.get({ 'userId': 'me' });
         request.execute(function(resp) {
-            location.replace((resp.id == deliver_id ? 'deliver.html' : 'receiver.html') + location.search.substring(0, location.search.length));
+            location.replace((resp.id == deliver_id ? '../page/deliver.html' : '../page/receiver.html') + location.search.substring(0, location.search.length));
         });
     });
 }

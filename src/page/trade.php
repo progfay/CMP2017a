@@ -11,7 +11,7 @@
   <link rel="manifest" href="favicons/manifest.json">
   <link rel="mask-icon" href="favicons/safari-pinned-tab.svg" color="#5bbad5">
 	<title>Trade</title>
-	<link rel="stylesheet" href="dist/bootstrap.min.css">
+	<link rel="stylesheet" href="../dist/bootstrap.min.css">
 	<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
 	<style>
 		th, td {
@@ -42,18 +42,18 @@
 				<tbody>
 							<?php
 								$highlight = (isset($_GET['highlight']) ? $_GET['highlight'] : "");
-								$db = new PDO("sqlite:SQL/customer.sqlite");
+								$db = new PDO("sqlite:../SQL/customer.sqlite");
 								$result = $db -> query("SELECT * FROM trade");
 								$yet  = "<i class=\"fa fa-square-o\" aria-hidden=\"true\" style=\"color: #AAAAAA;\"></i>";
 								$done = "<i class=\"fa fa-check-square-o\" aria-hidden=\"true\" style=\"color: #30CD52;\"></i>";
 								for($i = 0; $row = $result -> fetch(); ++$i) {
 									echo "<tr valign=center " . ($highlight == $row['id'] ? "class=\"highlight\""  : "") . ">";
 											echo "<th scope=\"row\">" . $row['id'] . "</td>";
-											echo "<td><a href=\"/user.php?user_id=" . $row['client']   . "\">" . $row['client']   . "</td>";
-											echo "<td><a href=\"/user.php?user_id=" . $row['receiver']  . "\">" . $row['receiver'] . "</td>";
+											echo "<td><a href=\"user.php?user_id=" . $row['client']   . "\">" . $row['client']   . "</td>";
+											echo "<td><a href=\"user.php?user_id=" . $row['receiver']  . "\">" . $row['receiver'] . "</td>";
 											echo "<td>" . ($row['option'] == "0" ? "なし" : "あり") . "</td>";
 											echo "<td>" . ($row['done']   == "0" ? $yet   : $done ) . "</td>";
-											echo "<td>" . ($row['sign'] == NULL ? $yet : "<a href=\"/sign_preview.php?deal_id=" . $row['id'] . "\"" . $done ."</a>") . "</td>";
+											echo "<td>" . ($row['sign'] == NULL ? $yet : "<a href=\"sign_preview.php?deal_id=" . $row['id'] . "\"" . $done ."</a>") . "</td>";
 									echo "</tr>";
 								}
 							?>

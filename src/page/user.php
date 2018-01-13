@@ -11,7 +11,7 @@
   <link rel="mask-icon" href="favicons/safari-pinned-tab.svg" color="#5bbad5">
 <meta name="theme-color" content="#ffffff">
   <title>User Information</title>
-  <link rel="stylesheet" href="dist/bootstrap.min.css">
+  <link rel="stylesheet" href="../dist/bootstrap.min.css">
 </head>
 
 <body>
@@ -20,7 +20,7 @@
     if(!isset($_GET['user_id'])) {
       echo "ERROR: Query \"user_id\" is not set.";
     } else {
-      $db = new PDO("sqlite:SQL/customer.sqlite");
+      $db = new PDO("sqlite:../SQL/customer.sqlite");
       $row = ($db -> query("SELECT * FROM user WHERE id=" . htmlspecialchars($_GET['user_id']))) -> fetch();
 
       echo '<div class="table-responsive">';
