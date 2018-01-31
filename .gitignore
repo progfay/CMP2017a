@@ -1,3 +1,5 @@
+src/.vscode
+
 ### https://raw.github.com/github/gitignore/df6a05e29979079fcb5d602b4dc260f34383eb92/Node.gitignore
 
 # Logs
@@ -59,5 +61,14 @@ typings/
 # dotenv environment variables file
 .env
 
+
+
+### https://raw.github.com/github/gitignore/df6a05e29979079fcb5d602b4dc260f34383eb92/Global/VisualStudioCode.gitignore
+
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
 
 
