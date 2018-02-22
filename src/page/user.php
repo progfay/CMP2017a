@@ -11,7 +11,7 @@
   <link rel="mask-icon" href="favicons/safari-pinned-tab.svg" color="#5bbad5">
 <meta name="theme-color" content="#ffffff">
   <title>User Information</title>
-  <link rel="stylesheet" href="../dist/bootstrap.min.css">
+  <link rel="stylesheet" href="../lib/bootstrap.min.css">
 </head>
 
 <body>

@@ -11,7 +11,7 @@
   <link rel="manifest" href="favicons/manifest.json">
   <link rel="mask-icon" href="favicons/safari-pinned-tab.svg" color="#5bbad5">
 	<title>Trade</title>
-	<link rel="stylesheet" href="../dist/bootstrap.min.css">
+	<link rel="stylesheet" href="../lib/bootstrap.min.css">
 	<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
 	<style>
 		th, td {
